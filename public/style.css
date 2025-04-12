@@ -1,0 +1,280 @@
+/* style.css */
+
+/* Variables de Color (¡Ajusta si quieres otros tonos!) */
+:root {
+    --cream-light: #FDF8F5;
+    --cream-medium: #F5EFE6;
+    --text-dark: #4E4340;
+    --accent-brown: #A98D7D; /* Color de acento principal */
+    --accent-brown-darker: #8a7162; /* Para hover de botones */
+    --white: #FFFFFF;
+    --border-light: #EAE0D5; /* Borde sutil */
+
+    /* Sombras suaves */
+    --box-shadow-sm: 0 .125rem .25rem rgba(78, 67, 64, .075);
+    --box-shadow: 0 .5rem 1rem rgba(78, 67, 64, .15);
+}
+
+/* Fuentes Globales */
+body {
+    font-family: 'Lato', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--cream-light);
+    padding-top: 70px; /* Ajusta si la altura de tu navbar es diferente */
+     /* Habilita el scroll suave nativo */
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand, .nav-link, .btn {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; /* Un poco más de peso para títulos */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-dark);
+}
+
+.display-3, .display-5 {
+    font-weight: 700; /* Títulos principales más audaces */
+}
+
+.lead {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    opacity: 0.9;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--white) !important; /* Fondo blanco para limpieza */
+    border-bottom: 1px solid var(--border-light);
+    transition: background-color 0.3s ease;
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* Opcional: Efecto al hacer scroll */
+/* .navbar-scrolled {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: var(--box-shadow);
+} */
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--text-dark) !important;
+}
+
+.nav-link {
+    color: var(--text-dark) !important;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    transition: color 0.3s ease;
+    position: relative;
+    padding-bottom: 0.3rem;
+}
+
+.nav-link::after { /* Sutil subrayado para el elemento activo/hover */
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-brown);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent-brown) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 70%; /* Ancho del subrayado */
+}
+
+/* Estilos de Botones Bootstrap */
+.btn-primary {
+    background-color: var(--accent-brown);
+    border-color: var(--accent-brown);
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--accent-brown-darker);
+    border-color: var(--accent-brown-darker);
+    color: var(--white);
+}
+
+.btn-outline-secondary {
+    border-color: var(--accent-brown);
+    color: var(--accent-brown);
+    font-weight: 600;
+    padding: 0.6rem 1.5rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+    background-color: var(--accent-brown);
+    color: var(--white);
+    border-color: var(--accent-brown);
+}
+
+/* Sección Inicio (Hero) */
+#inicio {
+    background-color: var(--cream-light); /* O un gradiente muy sutil si lo deseas */
+    /* background-image: linear-gradient(to bottom, var(--cream-light), var(--cream-medium)); */
+}
+
+#inicio .highlight {
+    color: var(--accent-brown);
+    font-weight: 700;
+}
+
+#inicio .profile-pic {
+    max-width: 300px; /* Ajusta el tamaño si usas imagen */
+    border: 5px solid var(--white);
+    box-shadow: var(--box-shadow);
+}
+
+
+/* Títulos de Sección */
+.section-title {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 0.5rem;
+    display: inline-block; /* Para que el subrayado se ajuste */
+}
+
+.title-underline {
+    width: 60px; /* Ancho del subrayado */
+    height: 4px;
+    background-color: var(--accent-brown);
+    margin: 0 auto 3rem auto; /* Centra el subrayado */
+    border-radius: 2px;
+}
+
+
+/* Sección Sobre Mí */
+#sobre-mi {
+    background-color: var(--white); /* Alterna color de fondo si quieres */
+}
+
+.skills-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.skills-list i {
+    color: var(--accent-brown);
+    font-size: 1.1rem; /* Tamaño del icono de check */
+}
+
+/* Sección Proyectos */
+#proyectos {
+    background-color: var(--cream-medium); /* Fondo secundario */
+}
+
+.project-card {
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--white);
+    border-radius: 8px; /* Bordes redondeados suaves */
+    overflow: hidden; /* Asegura que la imagen no se salga */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Sutil efecto de elevación */
+    box-shadow: var(--box-shadow);
+}
+
+.project-card .card-title {
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.project-card .card-text {
+    color: var(--text-dark);
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+
+.project-card .btn-sm {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    font-weight: 600;
+}
+
+
+/* Sección Contacto */
+#contacto {
+     background-color: var(--white);
+}
+
+#contacto .lead {
+    margin-bottom: 2.5rem;
+}
+
+.contact-links .btn {
+    min-width: 180px; /* Ancho mínimo para los botones de contacto */
+    text-align: left; /* Alinear icono y texto */
+    padding-left: 1.5rem; /* Más espacio para el icono */
+}
+
+.contact-links .btn i {
+    width: 20px; /* Asegurar alineación de iconos */
+}
+
+/* Footer */
+.footer {
+    background-color: var(--text-dark); /* Fondo oscuro para contraste */
+    color: var(--cream-light) !important; /* Texto claro */
+}
+
+.footer .text-muted {
+    color: rgba(253, 248, 245, 0.7) !important; /* Color crema claro semi-transparente */
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: rgba(253, 248, 245, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--white);
+}
+
+
+/* Media Queries para Responsividad (Ajustes adicionales si Bootstrap no es suficiente) */
+@media (max-width: 991.98px) {
+    body {
+        padding-top: 56px; /* Ajustar si la navbar cambia de altura */
+    }
+
+    #inicio {
+        text-align: center; /* Centrar texto en pantallas pequeñas */
+        min-height: auto; /* Ajustar altura en móviles */
+        padding: 6rem 0 4rem 0; /* Más padding vertical */
+    }
+
+    .navbar-nav {
+        margin-top: 1rem;
+        text-align: center;
+    }
+
+     .nav-link {
+        margin-bottom: 0.5rem;
+    }
+}
